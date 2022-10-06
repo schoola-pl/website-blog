@@ -9,6 +9,9 @@ export const Wrapper = styled.footer`
   background-color: ${({ theme }) => theme.colors.mainBlue};
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fontSize.xs};
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 
   p {
     margin: 0.2rem 0;
