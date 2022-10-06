@@ -73,9 +73,9 @@ const Home = () => {
               <input type="checkbox" required />
               <Label caption="Akceptuję politykę prywatności i wyrażam zgodę na kontakt" />
             </CheckboxWrapper>
-            <SubmitButton isModal onClick={handleChangeModal}>
+            <ModalSubmitButton onClick={handleChangeModal}>
               Zapisz się!
-            </SubmitButton>
+            </ModalSubmitButton>
           </ModalContentWrapper>
         </Modal>
       </HeroSection>
@@ -354,6 +354,12 @@ const SubmitButton = styled(Button)<{ isModal?: boolean; isOpen?: boolean }>`
   &:hover {
     transform: translateY(10%);
   }
+`;
+
+const ModalSubmitButton = styled(Button)`
+  margin: 2rem 0 2rem 0;
+  max-height: 5rem;
+  width: 100%;
 `;
 
 export default Home;
