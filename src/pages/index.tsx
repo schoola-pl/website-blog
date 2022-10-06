@@ -139,7 +139,7 @@ const SectionWrapper = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     flex-direction: row;
-    padding: 8rem 3rem 0 3rem;
+    padding: 0rem 3rem 0 3rem;
     align-self: center;
     justify-self: center;
   }
