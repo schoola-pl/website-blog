@@ -99,18 +99,20 @@ const HeroSection = styled.div<{ icon?: string }>`
 const ImageWrapper = styled.div`
   display: none;
   position: relative;
+  height: 100%;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     display: flex;
-
+    width: 44%;
     justify-content: center;
+    align-items: center;
     align-self: center;
 
     img {
+      margin: 1rem;
       align-self: center;
       max-height: 50rem;
     }
-    width: 44%;
   }
 `;
 
@@ -141,6 +143,11 @@ const SectionWrapper = styled.div`
     align-self: center;
     justify-self: center;
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
+    width: 95%;
+    padding: 2rem;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -149,7 +156,6 @@ const TextWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
-  border: 1px solid red;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     width: 90%;
@@ -267,7 +273,6 @@ const HeadingSmall = styled.h1`
   color: #d4d4d4;
   text-transform: uppercase;
   letter-spacing: 2px;
-  /* transform: translateY(150%); */
   align-self: flex-start;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
@@ -308,7 +313,7 @@ const BenefitsWrapper = styled.div`
       font-weight: ${({ theme }) => theme.fontWeight.medium};
 
       @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        font-size: ${({ theme }) => theme.fontSize.m};
+        font-size: ${({ theme }) => theme.fontSize.s};
       }
     }
   }
@@ -338,7 +343,8 @@ const SubmitButton = styled(Button)<{ isModal?: boolean; isOpen?: boolean }>`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     font-size: ${({ theme }) => theme.fontSize.s};
-    height: 6rem;
+    height: 5.5rem;
+    border-radius: 2.5rem;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
