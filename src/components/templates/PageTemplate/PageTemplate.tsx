@@ -5,10 +5,15 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
 const Wrapper = styled.div`
+  margin: 0;
+  padding: 0;
+
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const blogLocations = [
