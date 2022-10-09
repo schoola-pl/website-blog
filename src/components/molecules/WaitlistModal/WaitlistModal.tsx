@@ -20,7 +20,7 @@ export const WaitlistModal = ({ isOpen, setModalOpen }: WaitlistModalProps) => {
     e.preventDefault();
 
     await axios
-      .post(`${process.env.NEXT_MAKE_URL}`, {
+      .post('https://hook.eu1.make.com/8odfupxw5ghkxx8y4vy4yssnlce69i2i', {
         email: emailRef.current?.value,
         facility: facilityRef.current?.value,
       })
