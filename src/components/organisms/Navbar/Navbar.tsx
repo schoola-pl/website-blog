@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Wrapper } from './Navbar.styles';
 
-export const Navbar: React.FC<any> = ({ data }) => (
-  <Wrapper>
-    {data.map(({ content, link }: { content: string; link: string }) => (
-      <Link href={link} key={content} target="_blank" rel="noopener noreferrer">
-        {content}
+export const Navbar = () => {
+  const [isBlog, setIsBlog] = useState<boolean>(false);
+  const router = useRouter();
+  const pathname = router.pathname;
+
+  useEffect(() => {
+    if (pathname.includes('/blog') && !pathname.includes('articles')) {
+      setIsBlog(true);
+    } else {
+      setIsBlog(false);
+    }
+  }, [router.pathname]);
+
+  return (
+    <Wrapper>
+      <Link href={isBlog ? '/' : '/blog'}>
+        {isBlog ? 'Strona główna' : 'Blog'}
       </Link>
-    ))}
-  </Wrapper>
-);
+      <a href="https://schoola.pl" target="_blank" rel="noopener noreferrer">
+        O nas
+      </a>
+      <a
+        href="mailto:teo.wolski@communite.io"
+        target="_blank"
+        rel="noopener noreferrer">
+        Kontakt
+      </a>
+    </Wrapper>
+  );
+};
