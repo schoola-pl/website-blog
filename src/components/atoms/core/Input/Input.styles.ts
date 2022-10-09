@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Input = styled.input`
   border: none;
-  background-color: $colors-accentGray;
+  background-color: ${({ theme }) => theme.colors.accentGray};
   padding: 1.5rem;
   width: 100%;
   border-radius: 2rem;
