@@ -57,7 +57,7 @@ class MyDocument extends Document {
           />
           <meta name="viewport" content="width=device-width" key="viewport" />
           <meta charSet="utf-8" />
-          <title>Blog edukacyjny</title>
+          <title>Usprawnij swoją szkołę!</title>
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-YJ8PP2V8SP"
