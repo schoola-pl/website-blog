@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState, useRef } from 'react';
+import styled from 'styled-components';
 import AnimatedBackground from 'assets/icons/AnimatedBackground.svg';
 import Grow from 'assets/icons/Grow.svg';
 import TickIcon from 'assets/interactive-icons/TickIcon';
@@ -7,8 +7,8 @@ import Modal from 'react-modal';
 import { Input } from 'components/atoms/core/Input';
 import { Label } from 'components/atoms/core/Label';
 import { Button } from 'components/atoms/core/Button';
-
-import Image from 'next/image';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 const benefits = [
   {
@@ -20,6 +20,30 @@ const benefits = [
 
 const Home = () => {
   const [isOpen, setModalOpen] = useState(false);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const facilityRef = useRef<HTMLInputElement>(null);
+
+  const handleSendToSlack = async (e: any) => {
+    e.preventDefault();
+
+    await axios
+      .post('https://hook.eu1.make.com/8odfupxw5ghkxx8y4vy4yssnlce69i2i', {
+        email: emailRef.current?.value,
+        facility: facilityRef.current?.value,
+      })
+      .then(() => {
+        setModalOpen(false);
+        toast.success('Zapisaliśmy ciebie na listę oczekujących!', {
+          position: 'top-center',
+          style: {
+            zIndex: 9999,
+            fontSize: '1.4rem',
+          },
+        });
+        emailRef.current!.value = '';
+        facilityRef.current!.value = '';
+      });
+  };
 
   const handleChangeModal = () => {
     setModalOpen(!isOpen);
@@ -53,7 +77,7 @@ const Home = () => {
           </ImageWrapper>
         </SectionWrapper>
         <Modal isOpen={isOpen} style={modalStyles} ariaHideApp={false}>
-          <ModalContentWrapper>
+          <ModalContentWrapper onSubmit={handleSendToSlack}>
             <InfoWrapper>
               <CloseModalButton onClick={handleChangeModal}>x</CloseModalButton>
               <Heading>
@@ -64,20 +88,23 @@ const Home = () => {
               </p>
             </InfoWrapper>
             <ModalLabel caption="Nazwa placówki">
-              <Input placeholder="Liceum nr. 1 w Jastrzębiej Górze" />
+              <Input
+                placeholder="Liceum nr. 1 w Jastrzębiej Górze"
+                ref={facilityRef}
+                required
+              />
             </ModalLabel>
             <ModalLabel caption="E-mail">
-              <Input placeholder="mail@example.com" />
+              <Input placeholder="mail@example.com" ref={emailRef} required />
             </ModalLabel>
             <CheckboxWrapper>
               <input type="checkbox" required />
               <Label caption="Akceptuję politykę prywatności i wyrażam zgodę na kontakt" />
             </CheckboxWrapper>
-            <ModalSubmitButton onClick={handleChangeModal}>
-              Zapisz się!
-            </ModalSubmitButton>
+            <ModalSubmitButton type="submit">Zapisz się!</ModalSubmitButton>
           </ModalContentWrapper>
         </Modal>
+        <Toaster />
       </HeroSection>
     </>
   );
@@ -228,7 +255,7 @@ const Heading = styled.h1`
   }
 `;
 
-const ModalContentWrapper = styled.div`
+const ModalContentWrapper = styled.form`
   width: 90%;
   height: 100%;
   display: flex;
@@ -360,6 +387,11 @@ const ModalSubmitButton = styled(Button)`
   margin: 2rem 0 2rem 0;
   max-height: 5rem;
   width: 100%;
+  transition: ease-in 0.2s;
+
+  &:hover {
+    transform: translateY(10%);
+  }
 `;
 
 export default Home;

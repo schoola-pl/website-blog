@@ -9,7 +9,7 @@ export const Wrapper = styled.nav`
   justify-content: space-around;
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
   display: flex;
-  z-index: 999999999;
+  z-index: 999;
   top: 0;
 
   @media (min-width: 1000px) {
