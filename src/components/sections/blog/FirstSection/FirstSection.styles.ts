@@ -39,7 +39,11 @@ export const HeadingSection = styled.div`
 
   h1 {
     color: black;
-    font-size: clamp(${({ theme }) => theme.fontSize.l}, 6vw, ${({ theme }) => theme.fontSize.xxl});
+    font-size: clamp(
+      ${({ theme }) => theme.fontSize.l},
+      6vw,
+      ${({ theme }) => theme.fontSize.xxl}
+    );
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
     margin: 0;
 
@@ -52,7 +56,7 @@ export const HeadingSection = styled.div`
     margin: 1rem 0 2rem 0;
     font-size: clamp(${({ theme }) => theme.fontSize.xs}, 3vw, 2.7rem);
     color: black;
-    z-index: 99999;
+    z-index: 99;
 
     @media (min-width: 1000px) {
       max-width: 70%;
