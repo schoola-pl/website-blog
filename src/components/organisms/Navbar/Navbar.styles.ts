@@ -12,6 +12,10 @@ export const Wrapper = styled.nav`
   z-index: 999;
   top: 0;
 
+  @media (min-width: 700px) {
+    height: 8rem;
+  }
+
   @media (min-width: 1000px) {
     height: 10rem;
   }
