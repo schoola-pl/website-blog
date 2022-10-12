@@ -41,7 +41,7 @@ const Home = () => {
                 </div>
               ))}
             </S.BenefitsWrapper>
-            <S.SubmitButton isOpen={isOpen} onClick={handleChangeModal}>
+            <S.SubmitButton onClick={handleChangeModal}>
               Chcę się dowiedzieć więcej!
             </S.SubmitButton>
           </S.TextWrapper>

@@ -19,14 +19,12 @@ const ImageWrapper = styled.div`
   display: none;
   position: relative;
   height: 100%;
-
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     display: flex;
     width: 44%;
     justify-content: center;
     align-items: center;
     align-self: center;
-
     img {
       margin: 1rem;
       align-self: center;
@@ -44,6 +42,7 @@ const AnimatedBackgroundDiv = styled.div`
   height: 100%;
   width: 100%;
   background-size: 120%;
+  z-index: -1;
 `;
 
 const SectionWrapper = styled.div`
@@ -55,14 +54,12 @@ const SectionWrapper = styled.div`
   padding: 3rem;
   flex-direction: column;
   align-items: center;
-
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     flex-direction: row;
     padding: 0rem 3rem 0 3rem;
     align-self: center;
     justify-self: center;
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
     width: 95%;
     padding: 2rem;
@@ -75,11 +72,9 @@ const TextWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
-
   @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     width: 90%;
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     width: 50%;
     height: 100%;
@@ -90,18 +85,14 @@ const TextWrapper = styled.div`
 
 const HeadingBig = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.l};
-
   align-self: flex-start;
-
   span {
     color: ${({ theme }) => theme.colors.mainBlue};
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     align-self: flex-start;
     font-size: ${({ theme }) => theme.fontSize.xl};
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     align-self: flex-start;
     padding-top: 3.5rem;
@@ -114,11 +105,9 @@ const HeadingSmall = styled.h1`
   text-transform: uppercase;
   letter-spacing: 2px;
   align-self: flex-start;
-
   @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     font-size: ${({ theme }) => theme.fontSize.s};
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     font-size: ${({ theme }) => theme.fontSize.m};
     transform: translateY(75%);
@@ -129,21 +118,17 @@ const BenefitsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0;
-
   div {
     display: flex;
     align-items: center;
-
     & > svg {
       height: 50px;
       width: 70px;
-
       @media (min-width: ${({ theme }) => theme.breakpoints.s}) {
         height: 50px;
         width: 80px;
       }
     }
-
     p {
       padding-left: 5px;
       font-size: ${({ theme }) => theme.fontSize.xs};
@@ -151,7 +136,6 @@ const BenefitsWrapper = styled.div`
         font-size: ${({ theme }) => theme.fontSize.s};
       }
       font-weight: ${({ theme }) => theme.fontWeight.medium};
-
       @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
         font-size: ${({ theme }) => theme.fontSize.s};
       }
@@ -159,7 +143,7 @@ const BenefitsWrapper = styled.div`
   }
 `;
 
-const SubmitButton = styled(Button)<{ isModal?: boolean; isOpen?: boolean }>`
+const SubmitButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.mainBlue};
   font-size: ${({ theme }) => theme.fontSize.xs};
   display: flex;
@@ -172,25 +156,20 @@ const SubmitButton = styled(Button)<{ isModal?: boolean; isOpen?: boolean }>`
   height: 5rem;
   border-radius: 2rem;
   transition: ease-in 0.2s;
-  margin-top: ${({ isModal }) => (isModal ? '4rem' : '4rem')};
-  display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};
-  z-index: 1;
+  margin-top: 4rem;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.s}) {
     align-self: center;
     width: 40rem;
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     font-size: ${({ theme }) => theme.fontSize.s};
     height: 5.5rem;
     border-radius: 2.5rem;
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     align-self: flex-start;
   }
-
   &:hover {
     transform: translateY(10%);
   }
