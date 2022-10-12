@@ -10,7 +10,7 @@ const modalStyles = {
     bottom: 'auto',
     marginRight: '-45%',
     transform: 'translate(-50%, -50%)',
-    maxWidth: '50rem',
+    maxWidth: '37.5rem',
     maxHeight: '60rem',
     display: 'flex',
     alignItems: 'center',
