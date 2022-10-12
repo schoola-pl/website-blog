@@ -10,7 +10,7 @@ const HeroSection = styled.div<{ icon?: string }>`
   align-items: center;
   justify-content: center;
   background-position: center;
-  margin: 0;
+  margin: 2rem 0 0 0;
   padding: 0;
   align-self: center;
 `;
